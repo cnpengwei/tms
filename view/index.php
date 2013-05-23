@@ -24,7 +24,7 @@ $sql = "INSERT INTO tb_common_member (email, username, password) VALUES ('$_POST
 
 if (!mysql_query($sql,$con)) {
   die('Error: ' . mysql_error());
-  }
+}
 
 mysql_close($con);
 
