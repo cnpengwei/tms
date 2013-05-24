@@ -71,14 +71,14 @@
 
 
 					function sbumitFunc() {
-			        	var v_email = $("#txt_email");
-			        	var	v_uname = $("#txt_uname");
-			        	var v_paswd = $("#txt_paswd");
-
+			        	var v_email = "a@b.com";//$("#txt_email");
+			        	var	v_uname = "zhangsan";//$("#txt_uname");
+			        	var v_paswd = "zhangsan";//$("#txt_paswd");
+			        	
 			            $.ajax({
 			                        type: "GET",
 			                        url: "../Ajax/reg_act.php",
-			                        data:"email=" + v_email + "&paswd=" + v_paswd + "&uname=" + v_uname,
+			                        data:"email=aaa&paswd=" + v_paswd + "&uname=" + v_uname,
 			                        dataType:"text",
 			                        success: function (msg) {
 			                            //$("#btnRemindEmail").attr("disabled","disabled");
