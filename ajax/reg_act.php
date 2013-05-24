@@ -14,7 +14,7 @@
 
 		mysql_select_db("tms", $con);
 		// day_log("1");
-		$email = $_SERVER["QUERY_STRING"]; //$_REQUEST["email"]; //$_GET["age"] $_REQUEST["name"]
+		$email = $_POST["email"];// $_SERVER["QUERY_STRING"]; //$_REQUEST["email"]; //$_GET["age"] $_REQUEST["name"]
 		day_log($email);
 
 		// $paswd = '$_POST[paswd]';
@@ -64,4 +64,8 @@
 		// $url='http://'.$_SERVER['SERVER_NAME'].$_SERVER["REQUEST_URI"]; 
 		// echo dirname($url);
 		
+		// echo $_SERVER['DOCUMENT_ROOT']."<br>"; //获得服务器文档根变量
+		// echo $_SERVER['PHP_SELF']."<br>"; //获得执行该代码的文件服务器绝对路径的变量
+		// echo __FILE__."<br>"; //获得文件的文件系统绝对路径的变量
+		// echo dirname(__FILE__); //获得文件所在的文件夹路径的函数
 ?>
