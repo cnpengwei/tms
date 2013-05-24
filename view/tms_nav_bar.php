@@ -43,15 +43,11 @@
 		</div>
 	</div>
 
-		<div id="log-form" title="login">
-	        <!--<iframe id="funIFrame" src="regis.htm" frameborder="0"></iframe>-->
-	        email: <input type="text" id="txt_email" name="email" /><br/>
+	<div id="log-form" title="login">
+       		<!--<iframe id="funIFrame" src="regis.htm" frameborder="0"></iframe>-->
+            email: <input type="text" id="txt_email" name="email" /><br/>
 	        name : <input type="text" id="txt_uname" name="username" /><br/>
 	        password: <input type="text" id="txt_paswd" name="password" /><br/>
-	</div>
-
-	<div id="log-form" title="login">
-        <input type="text" id="txt1"></input>aaa
 	</div>
 	<script language="javascript">
 			$(document).ready(function(){
