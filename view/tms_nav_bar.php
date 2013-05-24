@@ -47,6 +47,7 @@
        		<!--<iframe id="funIFrame" src="regis.htm" frameborder="0"></iframe>-->
        		some text
        		some other text
+       		3rd text
             email: <input type="text" id="txt_email" name="email" /><br/>
 	        name : <input type="text" id="txt_uname" name="username" /><br/>
 	        password: <input type="text" id="txt_paswd" name="password" /><br/>
