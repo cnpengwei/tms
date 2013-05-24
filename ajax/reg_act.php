@@ -14,6 +14,7 @@
 
 		mysql_select_db("tms", $con);
 		// day_log("1");
+		
 		$email = $_POST["email"];// $_SERVER["QUERY_STRING"]; //$_REQUEST["email"]; //$_GET["age"] $_REQUEST["name"]
 		day_log($email);
 
