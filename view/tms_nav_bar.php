@@ -38,8 +38,16 @@
 				<span id="span_login"><a href="#" id="logbtn">Log</a></span>
 			</span>
 			
+
 		 	 
 		</div>
+	</div>
+
+		<div id="log-form" title="login">
+	        <!--<iframe id="funIFrame" src="regis.htm" frameborder="0"></iframe>-->
+	        email: <input type="text" id="txt_email" name="email" /><br/>
+	        name : <input type="text" id="txt_uname" name="username" /><br/>
+	        password: <input type="text" id="txt_paswd" name="password" /><br/>
 	</div>
 
 	<div id="log-form" title="login">
@@ -48,24 +56,45 @@
 	<script language="javascript">
 			$(document).ready(function(){
 					$( "#log-form" ).dialog({
-	            autoOpen: false,
-	            height: 500,
-	            width: 550,
-	            modal: true,
-	            //position: [1300,900] 
-	            buttons: {
-	            	Login:'test',
-	                Cancel:function(){
-	                    $( this ).dialog( "close" );
-	                }
-	            }
-	        });
+			            autoOpen: false,
+			            height: 500,
+			            width: 550,
+			            modal: true,
+			            //position: [1300,900] 
+			            buttons: {
+			            	// Login:'test',
+			            	"Submit": sbumitFunc,
+			                Cancel:function(){
+			                    $( this ).dialog( "close" );
+			                }
+			            }
+			        });
+
 					$("#logbtn").click(function(){
 							 $( "#log-form" ).dialog( "open" );
-						});
+					});
+
+
+					function sbumitFunc() {
+			        	var v_email = $("#txt_email");
+			        	var	v_uname = $("#txt_uname");
+			        	var v_paswd = $("#txt_paswd");
+
+			            $.ajax({
+			                        type: "GET",
+			                        url: "../Ajax/reg_act.php",
+			                        data:"email=" + v_email + "&paswd=" + v_paswd + "&uname=" + v_uname,
+			                        dataType:"text",
+			                        success: function (msg) {
+			                            //$("#btnRemindEmail").attr("disabled","disabled");
+			                        },
+			                        error: function (msg) {
+			                        }
+			                    });
+			            $( this ).dialog( "close" );
+			        }
+
+
 				})
 
-			function test()
-			{alert(1);
-			}
 	</script>
