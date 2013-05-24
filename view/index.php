@@ -12,6 +12,24 @@
   me tms index page
 </pre>
 
+<?php
+$con = mysql_connect("localhost","root","");
+if (!$con) {
+  die('Could not connect: ' . mysql_error());
+}
+
+mysql_select_db("tms", $con);
+
+$sql = "INSERT INTO tb_common_member (email, username, password) VALUES ('$_POST[email]', '$_POST[username]', md5('$_POST[password]'))"
+
+if (!mysql_query($sql,$con)) {
+  die('Error: ' . mysql_error());
+}
+
+mysql_close($con);
+
+?>
+
 </body>
 
 
