@@ -1,15 +1,11 @@
 
 
-
+    <link href="../css/css.css" rel="stylesheet" type="text/css"></link>    
+	<link href="../css/jquery-ui-1.9.2.custom.css" rel="stylesheet" type="text/css" />
 
 	<script src="../js/jquery-1.8.2.js" type="text/javascript"></script>
-	<script src="../js/jquery-ui-1.9.1.custom.js" type="text/javascript"></script>	
-	<link href="../css/jquery-ui-1.9.2.custom.css" rel="stylesheet" type="text/css" />
-	<style type="text/css">
-	body{
-		background-color: silver;
-	}
-	</style>
+	<script src="../js/jquery-ui-1.9.1.custom.js" type="text/javascript"></script>
+	
 
 	<div id="hp_sw_hdr" class="sc_hl1">
 		<div class="sw_tb">
