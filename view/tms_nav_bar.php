@@ -41,9 +41,6 @@
 
 	<div id="log-form" title="login">
        		<!--<iframe id="funIFrame" src="regis.htm" frameborder="0"></iframe>-->
-       		some text
-       		some other text
-       		3rd text
             email: <input type="text" id="txt_email" name="email" /><br/>
 	        name : <input type="text" id="txt_uname" name="username" /><br/>
 	        password: <input type="text" id="txt_paswd" name="password" /><br/>
@@ -71,14 +68,14 @@
 
 
 					function sbumitFunc() {
-			        	var v_email = "a@b.com";//$("#txt_email");
-			        	var	v_uname = "zhangsan";//$("#txt_uname");
-			        	var v_paswd = "zhangsan";//$("#txt_paswd");
-			        	
+			        	var v_email = $("#txt_email").val();//"a@b.com";
+			        	var	v_uname = $("#txt_uname").val();
+			        	var v_paswd = $("#txt_paswd").val();
+			        	alert(v_email);
 			            $.ajax({
-			                        type: "GET",
-			                        url: "../Ajax/reg_act.php",
-			                        data:"email=aaa&paswd=" + v_paswd + "&uname=" + v_uname,
+			                        type: "POST",
+			                        url: "../Ajax/reg_act.php?",
+			                        data:"email="+ v_email +"&paswd=" + v_paswd + "&uname=" + v_uname,
 			                        dataType:"text",
 			                        success: function (msg) {
 			                            //$("#btnRemindEmail").attr("disabled","disabled");
