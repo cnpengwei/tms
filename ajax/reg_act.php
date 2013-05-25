@@ -1,27 +1,19 @@
 
 <?php
 		date_default_timezone_set (PRC);//PRC  Asia/Shanghai
-		//STR_TO_DATE('" + str_dt_timerev + "', '%Y%m%d%k%i%s') 
-		//DATE_FORMAT( '1997-3-04 8:23:4', '%Y%m%d%H%i%s' )
 
-
-		// day_log("0");
 		$con = mysql_connect("localhost","root","");
 		if (!$con) {
 			day_log(mysql_error());
 			die('Could not connect: ' . mysql_error());
 		}
-
-		mysql_select_db("tms", $con);
-		// day_log("1");
-		
+		mysql_select_db("tms", $con);		
 		$email = $_POST["email"];// $_SERVER["QUERY_STRING"]; //$_REQUEST["email"]; //$_GET["age"] $_REQUEST["name"]
-		day_log($email);
-
-		// $paswd = '$_POST[paswd]';
-		// $uname = md5('$_POST[uname]';
-		$sql = "INSERT INTO tb_common_member (email, password, username) VALUES ('a', 'b', 'c')";
-		// $sql = "INSERT INTO tb_common_member (email, password, username) VALUES ($email, $paswd, $uname)";
+		$uname = $_POST["uname"];
+		$paswd = md5($_POST["paswd"]);
+		
+		//$sql = "INSERT INTO tb_common_member (email, password, username) VALUES ('a', 'b', 'c')";
+		$sql = "INSERT INTO tb_common_member (email, password, username) VALUES ('$email', '$paswd', '$uname')";
 
 		if (!mysql_query($sql, $con)) {
 			day_log(mysql_error());
@@ -69,4 +61,8 @@
 		// echo $_SERVER['PHP_SELF']."<br>"; //获得执行该代码的文件服务器绝对路径的变量
 		// echo __FILE__."<br>"; //获得文件的文件系统绝对路径的变量
 		// echo dirname(__FILE__); //获得文件所在的文件夹路径的函数
+
+
+		//STR_TO_DATE('" + str_dt_timerev + "', '%Y%m%d%k%i%s') 
+		//DATE_FORMAT( '1997-3-04 8:23:4', '%Y%m%d%H%i%s' )
 ?>
