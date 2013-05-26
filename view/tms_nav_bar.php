@@ -68,16 +68,18 @@
 
 
 					function sbumitFunc() {
-			        	var v_email = $("#txt_email").val();//"a@b.com";
+			        	var v_email = $("#txt_email").val();
 			        	var	v_uname = $("#txt_uname").val();
 			        	var v_paswd = $("#txt_paswd").val();
-			        	alert(v_email);
+			        	
 			            $.ajax({
 			                        type: "POST",
 			                        url: "../Ajax/reg_act.php?",
 			                        data:"email="+ v_email +"&paswd=" + v_paswd + "&uname=" + v_uname,
 			                        dataType:"text",
 			                        success: function (msg) {
+			                            //TODO Refresh Login Page
+			                            alert('suc');
 			                            //$("#btnRemindEmail").attr("disabled","disabled");
 			                        },
 			                        error: function (msg) {
