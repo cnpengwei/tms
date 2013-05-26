@@ -1,0 +1,68 @@
+@import url("reset.css");
+
+html,body{
+	margin:0;
+	padding:0;
+}
+body{
+	background: #f5f5f5;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	color: :#333;
+	line-height: 18px;
+}
+#content{
+	position: absolute;
+	top:50%;
+	left: 50%;
+	width: 900px;
+	height: 600px;
+	margin:-100px 0 0 -450px;
+}
+
+
+
+.lengend{
+	float: left;
+	width: 250px;
+	margin-top: 140px;
+}
+
+#content h1{
+	font-family: 'Cabin Sketch', Arial,serif;
+	text-shadow:3px 3px 0 #add;
+	font-size: 40px;
+	text-align: right;
+	margin-bottom: 40px;
+}
+
+.skills{
+	float: left;
+	clear: both;
+	width: 100%;
+}
+
+.skills ul,
+.skills ui{
+	display: block;
+	list-style:none;
+	margin:0;
+	padding: 0;
+}
+
+.skills li{
+	float: right;
+	clear:both;
+	padding: 0 15px;
+	height: 35px;
+	line-height: 35px;
+	color: #fff;
+	margin-bottom: 1px;
+	font-size: 18px;
+	background-color: blue;
+}
+
+
+#get{
+	display: none;
+}
