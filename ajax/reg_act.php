@@ -65,4 +65,12 @@
 
 		//STR_TO_DATE('" + str_dt_timerev + "', '%Y%m%d%k%i%s') 
 		//DATE_FORMAT( '1997-3-04 8:23:4', '%Y%m%d%H%i%s' )
+
+
+		// {
+		// $sql_page=”select * from user order by id desc”;
+		// $page_res=mysql_query($sql_page);
+		// while ($arr=mysql_fetch_array($page_res)){
+		//  $ajax_arr['page_content'].=’id:’.$arr['id'].’<br>user:’.$arr['user'].’<br><hr>’;
+		// }
 ?>
