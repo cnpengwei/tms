@@ -87,10 +87,42 @@
 			                        error: function (msg) {
 			                        }
 			                    });
+
 			            $( this ).dialog( "close" );
-			        }
+
+			        }//submitFunc end
+
+			        function setCookie(msg){
+		        	// alert('0. Setting cookie');
+		        	var name = 'cur_usr';//arguments[0];
+		        	var value= 'jianren';//arguments[1];
+					var exp = new Date();					
+					var Days = 1; 
+					exp.setTime(exp.getTime() + Days*24*60*60*1000/2);					
+					document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString()+";path=/";
+					// alert('1. cookie done');
+
+				    /*
+				    if(arguments.length==2){
+				        var name=arguments[0];
+				        var value=arguments[1];
+				        var Days = 1; 
+				        var exp  = new Date();
+				        exp.setTime(exp.getTime() + Days*24*60*60*1000/2);
+				        document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString()+";path=/";
+				    }else if(arguments.length==3){
+				        var name=arguments[0];
+				        var value=arguments[1];
+				        var Seconds = arguments[2];
+				        var exp  = new Date();
+				        exp.setTime(exp.getTime() + Seconds*24*60*60*1000/2);
+				        document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString()+";path=/";
+				    }else{
+				        alert("操作错误！");
+				    }*/
+				}//setCookie End
 
 
-				})
+			})//document ready end
 
 	</script>
