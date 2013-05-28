@@ -78,6 +78,8 @@
 			                        data:"email="+ v_email +"&paswd=" + v_paswd + "&uname=" + v_uname,
 			                        dataType:"text",
 			                        success: function (msg) {
+									setCookie(msg);
+									parent.document.getElementById("btn_refresh").click();  
 			                            //TODO Refresh Login Page
 			                            alert('suc');
 			                            //$("#btnRemindEmail").attr("disabled","disabled");
