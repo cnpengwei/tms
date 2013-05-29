@@ -3,18 +3,29 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>tms index page</title>
+	<style type="text/css">
+	body{
+		background-color: #eee;
+		/*float: center;*/
+	}
+	div#wrap{ 
+		width: 760px;
+		margin:0 auto;
+		border: 1px solid #333;
+		background-color: #ccc;
+	} 
+	</style>
 </head>
 <body>
-<?php include 'tms_nav_bar.php'; ?>
 
 
-<pre>
-  	me tms index page
-</pre>
+<div id="wrap">
 
-<hr/>
+	水平居中
 
-<input type="text" id="txt_0" value="me will be changed by dialog cancel" />
+</div>
+
+
 
 
 </body>
