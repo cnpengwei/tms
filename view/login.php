@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -63,6 +61,5 @@ var_dump($_POST);
 		<a href="#" id="fetch_upwd">忘记密码</a>
 	</div>
 </form>
-
 </body>
 </html>
