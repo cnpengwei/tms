@@ -1,20 +1,4 @@
-<?php
 
-echo "me";
-var_dump($_POST);
-
-if(isset($_POST['btn_login'])){
-	echo "22";
-	session_start();
-	if(isset($_POST['usr']) && isset($_POST['pwd'])){		
-		$_SESSION['usr'] = 'abc';
-		header("Location:index.php");
-	}else{
-		header("Location:login.php");
-	}
-}
-
-?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -52,6 +36,24 @@ if(isset($_POST['btn_login'])){
 	</style>
 </head>
 <body>
+
+<?php
+
+echo "me";
+var_dump($_POST);
+
+// if(isset($_POST['btn_login'])){
+// 	echo "22";
+// 	session_start();
+// 	if(isset($_POST['usr']) && isset($_POST['pwd'])){		
+// 		$_SESSION['usr'] = 'abc';
+// 		header("Location:index.php");
+// 	}else{
+// 		header("Location:login.php");
+// 	}
+// }
+
+?>
 
 <form method="POST" action="login.php">
 	<div id="container">
