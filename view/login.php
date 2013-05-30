@@ -37,8 +37,8 @@
 
 <?php
 
-echo "me";
-var_dump($_POST);
+// echo "me";
+// var_dump($_POST);
 
 // if(isset($_POST['btn_login'])){
 // 	echo "22";
@@ -51,14 +51,24 @@ var_dump($_POST);
 // 	}
 // }
 
+// echo $_POST['role_select'];
 ?>
 
-<form method="POST" action="login.php">
-	<div id="container">
-		用户名: <input type="textbox" id="txt_name" name="usr" /><br/>
-		密&nbsp;&nbsp;&nbsp;&nbsp;码: <input type="textbox" id="txt_upwd" name="pwd" /><br/>
-		<input type="submit" id="btn_login" name="btn_login" value="Login" /> &nbsp;&nbsp; 
-		<a href="#" id="fetch_upwd">忘记密码</a>
+<form  action="loginProcess.php" method="POST">
+	<div id="container">		
+		用户名: <input type="textbox" name="usr" /><br/>
+		身&nbsp;&nbsp;份: 
+		<label>
+			<select name="role_select">
+				<option value="1">教务员</option>
+				<option value="1">管理员</option>
+				<option value="1">教师</option>
+				<option value="1">学生</option>
+			</select>
+		</label><br/>		 
+		密&nbsp;&nbsp;码: <input type="textbox" name="pwd" /><br/>
+		<input type="submit" value="Login" /> &nbsp;&nbsp; 
+		<input type="reset" value="重新填写"/>
 	</div>
 </form>
 </body>
