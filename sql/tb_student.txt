@@ -1,0 +1,35 @@
+create table tb_student(
+id mediumint(8) unsigned not null primary key auto_increment default NULL, 
+stu_no varchar(20) not null,
+stu_name varchar(20) not null,
+stu_gender varchar(2) not null,
+stu_email char(40) default ' ', 
+stu_phone varchar(20) default ' ',
+stu_status tinyint(1) not null default 0 comment 'student status normal health leave', 
+stu_emailstatus tinyint(1) not null default 0 comment 'student email verified status', 
+stu_avatarstatus tinyint(1) default 0 comment 'student avatar', 
+stu_class varchar(20) not null,
+stu_grade varchar(20) not null,
+stu_insti varchar(20) not null,
+stu_admin tinyint(1) not null default 0 comment 'student admin teacher id'
+)comment='store student';
+
+
+alter table tb_student comment 'store student info'
+
+alter table tb_student change stu_no stu_num varchar(20) not null
+
+SHOW FULL COLUMNS FROM tb_student
+
+SHOW CREATE TABLE tb_student
+--will show below info
+CREATE TABLE `tb_student` (  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,  `stu_num` varchar(20) NOT NULL,  `stu_name` varchar(20) NOT NULL,  `stu_gender` char(1) NOT NULL,  `stu_email` varchar(40) DEFAULT ' ',  `stu_phone` varchar(20) DEFAULT ' ',  `stu_status` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'student status normal health leave',  `stu_emailstatus` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'student email verified status',  `stu_avatarstatus` tinyint(1) DEFAULT '0' COMMENT 'student avatar',  `stu_class` varchar(20) NOT NULL,  `stu_grade` varchar(20) NOT NULL,  `stu_insti` varchar(20) NOT NULL,  `stu_admin` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'student admin teacher id',  PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='store student info'
+
+
+
+
+
+
+
+
+
