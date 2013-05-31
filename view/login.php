@@ -37,7 +37,6 @@
 
 <?php
 
-// echo "me";
 // var_dump($_POST);
 
 // if(isset($_POST['btn_login'])){
