@@ -1,0 +1,4 @@
+CREATE TABLE `tb_teacher` (  `id` mediumint(8) unsigned NOT NULL  AUTO_INCREMENT,  `tea_no` varchar(20) NOT NULL,  `tea_name` varchar(20) NOT NULL,  `tea_gender` char(1) NOT NULL,  `tea_email` varchar(40) DEFAULT ' ',  `tea_phone` varchar(20) DEFAULT ' ',  `tea_status` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'teacher status normal health leave',  `tea_emailstatus` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'teacher email verified status',  `tea_avatarstatus` tinyint(1) DEFAULT '0' COMMENT 'teacher avatar',  `tea_level` varchar(20) NOT NULL,    `tea_insti` varchar(20) NOT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='store teacher info'
+
+
+
