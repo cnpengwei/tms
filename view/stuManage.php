@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en-US">
+<html>
 <head>
 	<meta charset="UTF-8">
 	<title>student management</title>
@@ -44,6 +44,10 @@
 	<td><input type="text" name="stu_name" /></td>
 </tr>
 <tr>
+	<td align="right">初始密码(123456):</td>
+	<td><input type="text" name="stu_password" /></td>
+</tr>
+<tr>
 	<td align="right">性别:</td>
 	<td>
 		女<input type="radio" name="stu_gender" value="0" onclick="getVote(this.value)">
@@ -68,11 +72,38 @@
 </tr>
 <tr>
 	<td align="right">班级:</td>
-	<td><input type="text" name="stu_class" /></td>
+	<td>
+		<select name="stu_class">
+				<option value="01">01</option>	
+				<option value="02">02</option>
+				<option value="03">03</option>
+				<option value="04">04</option>
+				<option value="05">05</option>
+				<option value="06">06</option>
+				<option value="07">07</option>
+				<option value="08">08</option>
+				<option value="09">09</option>
+				<option value="10">10</option>
+		</select>	
+	</td>
 </tr>
 <tr>
 	<td align="right">年级:</td>
-	<td><input type="text" name="stu_grade" /></td>
+	<td>
+		<select name="stu_grade">
+				<option value="2009">2009</option>	
+				<option value="2010">2010</option>
+				<option value="2011">2011</option>
+				<option value="2012">2012</option>
+				<option value="2013">2013</option>
+				<option value="2014">2014</option>
+				<option value="2015">2015</option>
+		</select>		
+	</td>
+</tr>
+<tr>
+	<td align="right">系别:</td>
+	<td><input type="text" name="stu_department" /></td>
 </tr>
 <tr>
 	<td align="right">学院:</td>

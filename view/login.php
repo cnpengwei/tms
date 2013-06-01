@@ -70,7 +70,20 @@
 		<input type="submit" value="用户登录" /> &nbsp;&nbsp; 
 		<input type="reset" value="重新填写"/>
 	</p>
+	
+	<?php		
+		if(isset($_GET['errno'])) {			
+			 if(!empty($_GET['errno'])) {
+				$errno=$_GET['errno'];
+				if($errno == 1) {
+					echo "<br /> <font color='red' size='3'>用户名或密码错误 </font>";	
+				}
+			 }
+						
+		}
+	?>
 	</div>
 </form>
+
 </body>
 </html>

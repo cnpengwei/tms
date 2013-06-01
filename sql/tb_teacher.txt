@@ -2,3 +2,29 @@ CREATE TABLE `tb_teacher` (  `id` mediumint(8) unsigned NOT NULL  AUTO_INCREMENT
 
 
 
+
+
+
+alter table tb_teacher modify `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL, 
+
+
+
+CREATE TABLE `tb_teacher` (
+ `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+ `tea_no` varchar(20) NOT NULL,
+ `tea_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+ `tea_password` char(32) NOT NULL,
+ `tea_gender` char(1) NOT NULL,
+ `tea_email` varchar(40) DEFAULT ' ',
+ `tea_phone` varchar(20) DEFAULT ' ',
+ `tea_status` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'teacher status normal \r\n\r\nhealth leave',
+ `tea_emailstatus` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'teacher email verified status',
+ `tea_avatarstatus` tinyint(1) DEFAULT '0' COMMENT 'teacher \r\n\r\navatar',
+ `tea_department` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+ `tea_insti` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+ `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ PRIMARY KEY (`id`),
+ UNIQUE KEY `tea_no` (`tea_no`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COMMENT='store teacher info'
+
+
