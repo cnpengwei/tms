@@ -1,0 +1,12 @@
+CREATE TABLE `tb_admin` (
+ `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+ `admin_no` varchar(20) NOT NULL,
+ `admin_name` varchar(20) NOT NULL,
+ `admin_password` char(32) NOT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COMMENT='store admin info'
+
+
+
+
+
