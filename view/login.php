@@ -57,16 +57,15 @@
 	<div id="container">	
 		<h1>请登录</h1>	
 		用户名: <input type="textbox" name="loginId" /><br/>
-		身&nbsp;&nbsp;&nbsp;&nbsp;份: 
+		身&nbsp;&nbsp;份: 
 		<label>
-			<select name="role_select">
-				<option value="1">教务员</option>
+			<select name="role_select">				
 				<option value="1">管理员</option>
-				<option value="1">教师</option>
-				<option value="1">学生</option>
+				<option value="2">教师</option>
+				<option value="3">学生</option>
 			</select>
 		</label><br/>		 
-		密&nbsp;&nbsp;&nbsp;&nbsp;码: <input type="textbox" name="userPwd" /><br/>
+		密&nbsp;&nbsp;码: <input type="password" name="userPwd" /><br/>
 	<p>
 		<input type="submit" value="用户登录" /> &nbsp;&nbsp; 
 		<input type="reset" value="重新填写"/>
