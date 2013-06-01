@@ -32,7 +32,7 @@ if($row=mysql_fetch_assoc($res)){
 		if($row['admin_password'] == $pwd){
 			// day_log("admin ".$uid." login");
 			$uname = $row['admin_name'];
-			header("Location:stuManage.php?name=$uname&role=$rol");
+			header("Location:adminPage.php?name=$uname&role=$rol");
 			exit();	
 		}else{
 			header("Location:login.php?errno=1");

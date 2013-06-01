@@ -5,6 +5,25 @@
 	<title>管理员页面</title>
 </head>
 <body>
+	<?php
+	$uname = $_GET['name'];
+	$role = $_GET['role'];
+	switch ($role){
+		case 1:
+  			$role="管理员";
+  		break;  
+		case 2:
+  			$role="教师";;
+  		break;
+  		case 3:
+  			$role="学生";;
+  		break;
+  		default:
+		  $role="不明身份";	
+	}
+	
+	echo "欢迎 ".$uname." 登录, 您当前的身份是:". $role. " <br/>";	
+?>
 <a href="stuList.php" >管理学生</a>
 <a href="stuAdd.php" >添加学生</a>
 <a href="teaList.php" >管理教师</a>
