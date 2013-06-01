@@ -16,11 +16,11 @@ mysql_select_db("tms", $con) or day_log("use db tms err:".mysql_error());
 
 $sql="";
 if($rol == "1"){
-	$sql="select admin_password from tb_admin where admin_no='$uid'";
+	$sql="select admin_password, admin_name from tb_admin where admin_no='$uid'";
 }elseif($rol == "2"){
-	$sql="select tea_password from tb_teacher where tea_no = '$uid'";	
+	$sql="select tea_password, tea_name from tb_teacher where tea_no = '$uid'";	
 }elseif($rol == "3"){
-	$sql="select stu_password from tb_student where stu_no = '$uid'";
+	$sql="select stu_password, stu_name from tb_student where stu_no = '$uid'";
 }
 
 $res=mysql_query($sql,$con);
@@ -30,8 +30,9 @@ $res=mysql_query($sql,$con);
 if($row=mysql_fetch_assoc($res)){
 	if($rol == "1"){//1. admin
 		if($row['admin_password'] == $pwd){
-			day_log("admin ".$uid." login");
-			header("Location:stuManage.php");
+			// day_log("admin ".$uid." login");
+			$uname = $row['admin_name'];
+			header("Location:stuManage.php?name=$uname&role=$rol");
 			exit();	
 		}else{
 			header("Location:login.php?errno=1");
@@ -39,8 +40,9 @@ if($row=mysql_fetch_assoc($res)){
 		}
 	}elseif ($rol == "2") {//2. teacher
 		if($row['tea_password'] == $pwd){
-			day_log("teacher ".$uid. " login");
-			header("Location:questionManage.php");
+			// day_log("teacher ".$uid. " login");
+			$uname = $row['tea_name'];
+			header("Location:questionManage.php?name=$uname&role=$rol");
 			exit();
 		}else{
 			header("Location:login.php?errno=1");
@@ -49,8 +51,9 @@ if($row=mysql_fetch_assoc($res)){
 
 	}elseif($rol == "3") {//3. student
 		if($row['stu_password'] == $pwd){
-			day_log("student ".$uid." login");
-			header("Location:examTaken.php");
+			// day_log("student ".$uid." login");
+			$uname = $row['stu_name'];
+			header("Location:examTaken.php?name=$uname&role=$rol");
 			exit();
 		}else{
 			header("Location:login.php?errno=1");
