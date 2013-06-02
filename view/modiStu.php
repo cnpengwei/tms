@@ -1,16 +1,24 @@
 <?php
 
+// echo "modifiy sptudent info";//view :)
+// 1. if html file has exist, take the value from the html file, instead of read DB
+// 2. update the data into db.
+// 3. write the html file at the same time
 $id=intval($_GET['id']);
 $html_file="html/stu-".$id.".html";
 
 
 if(file_exists($html_file) ){//&& filemtime($html_file)+30>=time() // time delay not real time ...  
-	echo "from html";
+	// echo "from html";
 	header("content-type:text/html;charset=utf-8");
-	echo file_get_contents($html_file);
-	exit;
+	// echo file_get_contents($html_file);
+	// exit;
+	$html_fp = fopen($html_file,'r');
+	
+
 }
 
+// the action of update DB will be moved to controller
 $con=mysql_connect("localhost","root","");
 if(!$con){
 	die("connect fail");
@@ -41,6 +49,4 @@ if($row=mysql_fetch_assoc($res)){
 	$ob_str=ob_get_contents();
 	file_put_contents($html_file, $ob_str);
 }
-
-
 

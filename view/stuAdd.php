@@ -32,7 +32,7 @@
 </style>
 </head>
 <body>
-<form action="stuInfoMaintain.php" method="POST">
+<form action="../controller/stuAction.php" method="POST">
 	<h1>学生信息:</h1>
 <table>
 <tr>
@@ -44,8 +44,8 @@
 	<td><input type="text" name="stu_name" /></td>
 </tr>
 <tr>
-	<td align="right">初始密码(123456):</td>
-	<td><input type="text" name="stu_password" /></td>
+	<td align="right">密码:</td>
+	<td><input type="text" name="stu_password" value="123456" readonly /></td>
 </tr>
 <tr>
 	<td align="right">性别:</td>
@@ -119,6 +119,7 @@
 		<input type="reset" value="重新填写"/>&nbsp;&nbsp;
 <input type="submit" name="btnSubmit" value="提交"/>
 
+<input type='hidden' name='oper' value='add'>
 </form>
 
 </body>
