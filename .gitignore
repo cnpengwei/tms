@@ -140,6 +140,7 @@ csx
 AppPackages/
 
 # Others
+view/html/
 sql/
 *.Cache
 ClientBin/
