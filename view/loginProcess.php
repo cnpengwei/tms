@@ -3,7 +3,21 @@
 $uid = $_POST['loginId'];
 $pwd = md5(trim($_POST['userPwd']));
 $rol = "";//$_POST['role_select'];//1 admin 2. teacher 3. student
+$chk = $_POST['checkCode'];
 
+session_start();
+if ($chk!=$_SESSION['myCheckCode']){
+	header("Location:login.php?errno=2");
+	exit();
+}
+
+if(empty($_POST['keep'])){
+	if(!empty($_COOKIE['uid'])){
+		setcookie("uid",$id,time()-100);
+	}
+}else{
+	setcookie("uid",$id, time()+7*2*24*3600);
+}
 
 date_default_timezone_set('PRC');
 $con = mysql_connect("localhost","root","");
@@ -16,91 +30,56 @@ mysql_select_db("tms", $con) or day_log("use db tms err:".mysql_error());
 
 $sql="";
 $sql="select stu_password, stu_name from tb_student where stu_no = '$uid'";
-// if($rol == "1"){
-// 	$sql="select admin_password, admin_name from tb_admin where admin_no='$uid'";
-// }elseif($rol == "2"){
-// 	$sql="select tea_password, tea_name from tb_teacher where tea_no = '$uid'";	
-// }elseif($rol == "3"){
-// 	$sql="select stu_password, stu_name from tb_student where stu_no = '$uid'";
-// }
-$que=mysql_query($sql);
-$row=mysql_fetch_row($que);
-if(!empty($row)){
+$res=mysql_query($sql,$con);
+$row=mysql_fetch_row($res);//每个结果的列储存在一个数组的单元中，偏移量从 0 开始。 
+if(!empty($row) && $pwd==$row[0]){//student
 	//Loged as admin
 	$rol=3;		
-	$uname = $row['stu_name'];
+	$uname = $row[1]; //column index, instead of column name, not like mysql_fetch_assoc
 	header("Location:exmStudent/examTaken.php?name=$uname&role=$rol");
 	exit();
 }else{
 	$sql="select tea_password, tea_name from tb_teacher where tea_no = '$uid'";
-	$que=mysql_query($sql);
-	$row=mysql_fetch_row($que);
-	if(!empty($row)){
+	$res=mysql_query($sql);
+	$row=mysql_fetch_row($res);
+	if(!empty($row) && $pwd==$row[0]){//teacher
 		$rol=2;
-		$uname = $row['tea_name'];
-		header("Location:exmTeacher/questionManage.php?name=$uname&role=$rol");
+		$uname = $row[1];
+		header("Location:exmTeacher/questionManageView.php?name=$uname&role=$rol");
 		exit();
-	}
-}
-/*
-$res=mysql_query($sql,$con);
-//从结果集中取得一行作为关联数组
-//返回根据从结果集取得的行生成的关联数组，如果没有更多行，则返回 false
-//本函数返回的字段名是区分大小写的
-if($row=mysql_fetch_assoc($res)){
-	if($row['admin_password'] == $pwd){
-		// day_log("admin ".$uid." login");
-		$uname = $row['admin_name'];
-		header("Location:adminPage.php?name=$uname&role=$rol");
-		exit();	
 	}else{
-		$sql="";
-		header("Location:login.php?errno=1");
-		exit();
-	}
-		
-	if($rol == "1"){//1. admin
-	
-		}else{
-			
-		}
-	}elseif ($rol == "2") {//2. teacher
-		if($row['tea_password'] == $pwd){
-			// day_log("teacher ".$uid. " login");
-			$uname = $row['tea_name'];
-			header("Location:questionManage.php?name=$uname&role=$rol");
+		$sql="select admin_password, admin_name from tb_admin where admin_no='$uid'";
+		$res=mysql_query($sql, $con);
+		$row=mysql_fetch_row($res);
+		if(!empty($row) && $pwd==$row[0]){//Admin
+			$rol=1;
+			$uname = $row[1];
+			header("Location:admin/adminPage.php?name=$uname&role=$rol");
 			exit();
 		}else{
+			//TODO ....非法用户
 			header("Location:login.php?errno=1");
 			exit();
-		}
-
-	}elseif($rol == "3") {//3. student
-		if($row['stu_password'] == $pwd){
-			// day_log("student ".$uid." login");
-			$uname = $row['stu_name'];
-			header("Location:examTaken.php?name=$uname&role=$rol");
-			exit();
-		}else{
-			header("Location:login.php?errno=1");
-			exit();
-		}
+		}	
 	}
-}else{
-	//用户名或密码错
-	header("Location:login.php?errno=1");
-	exit();
 }
 
-mysql_free_result($res);
-mysql_close($con);
-*/
 function day_log($msg){
 		$time_stmp = date('[Y-m-d H:i:s]');
 		$date_stmp = date('Y-m-d');
 		file_put_contents($date_stmp.".log", $time_stmp.$msg."\r\n", FILE_APPEND);
 }
 
+
+/*
+mysql_fetch_assoc($res)
+//从结果集中取得一行作为关联数组
+//返回根据从结果集取得的行生成的关联数组，如果没有更多行，则返回 false
+//本函数返回的字段名是区分大小写的
+
+mysql_free_result($res);
+mysql_close($con);
+*/
 
 /*
 $admin_name="admin";

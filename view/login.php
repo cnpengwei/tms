@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -31,44 +32,20 @@
 		border: 1px solid #333;
 		background-color: #ccc;
 	}
+	p{
+		margin:0;
+	}
 	</style>
 </head>
 <body>
-
-<?php
-
-// require_once "common.php";
-// checkUserValidate();
-// var_dump($_POST);
-
-// if(isset($_POST['btn_login'])){
-// 	echo "22";
-// 	session_start();
-// 	if(isset($_POST['usr']) && isset($_POST['pwd'])){		
-// 		$_SESSION['usr'] = 'abc';
-// 		header("Location:index.php");
-// 	}else{
-// 		header("Location:login.php");
-// 	}
-// }
-
-// echo $_POST['role_select'];
-?>
-
 <form  action="loginProcess.php" method="POST">
 	<div id="container">	
 		<h1>请登录</h1>	
 		用户名: <input type="textbox" name="loginId" /><br/>
-		身&nbsp;&nbsp;份: 
-		<label>
-			<select name="role_select">				
-				<option value="1">管理员</option>
-				<option value="2">教师</option>
-				<option value="3">学生</option>
-			</select>
-		</label><br/>		 
+		<br/>		 
 		密&nbsp;&nbsp;码: <input type="password" name="userPwd" /><br/>
-		验证码: <input type="text" name="checkCode"><img src="checkCode.php" onclick="this.src='checkCode.php?aa='+Math.random()'" /> 
+		验证码: <input type="text" name="checkCode"><img src="checkCode.php" onclick="this.src='checkCode.php?a='+Math.random()" /> <br />
+		保存一周<input type="checkbox" name="keep" />
 	<p>
 		<input type="submit" value="用户登录" /> &nbsp;&nbsp; 
 		<input type="reset" value="重新填写"/>
@@ -79,7 +56,9 @@
 			 if(!empty($_GET['errno'])) {
 				$errno=$_GET['errno'];
 				if($errno == 1) {
-					echo "<br /> <font color='red' size='3'>用户名或密码错误 </font>";	
+					echo "<font color='red' size='3'>用户名或密码错误 </font>";	
+				}else if($errno == 2){
+					echo "<font color='red' size='3'>验证码错误 </font>";
 				}
 			 }
 						
