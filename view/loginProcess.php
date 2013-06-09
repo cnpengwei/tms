@@ -2,7 +2,7 @@
 
 $uid = $_POST['loginId'];
 $pwd = md5(trim($_POST['userPwd']));
-$rol = $_POST['role_select'];//1 admin 2. teacher 3. student
+$rol = "";//$_POST['role_select'];//1 admin 2. teacher 3. student
 
 
 date_default_timezone_set('PRC');
@@ -15,28 +15,54 @@ mysql_query('set names utf8', $con) or day_log("setup_db_code fail: ".mysql_erro
 mysql_select_db("tms", $con) or day_log("use db tms err:".mysql_error());
 
 $sql="";
-if($rol == "1"){
-	$sql="select admin_password, admin_name from tb_admin where admin_no='$uid'";
-}elseif($rol == "2"){
-	$sql="select tea_password, tea_name from tb_teacher where tea_no = '$uid'";	
-}elseif($rol == "3"){
-	$sql="select stu_password, stu_name from tb_student where stu_no = '$uid'";
+$sql="select stu_password, stu_name from tb_student where stu_no = '$uid'";
+// if($rol == "1"){
+// 	$sql="select admin_password, admin_name from tb_admin where admin_no='$uid'";
+// }elseif($rol == "2"){
+// 	$sql="select tea_password, tea_name from tb_teacher where tea_no = '$uid'";	
+// }elseif($rol == "3"){
+// 	$sql="select stu_password, stu_name from tb_student where stu_no = '$uid'";
+// }
+$que=mysql_query($sql);
+$row=mysql_fetch_row($que);
+if(!empty($row)){
+	//Loged as admin
+	$rol=3;		
+	$uname = $row['stu_name'];
+	header("Location:exmStudent/examTaken.php?name=$uname&role=$rol");
+	exit();
+}else{
+	$sql="select tea_password, tea_name from tb_teacher where tea_no = '$uid'";
+	$que=mysql_query($sql);
+	$row=mysql_fetch_row($que);
+	if(!empty($row)){
+		$rol=2;
+		$uname = $row['tea_name'];
+		header("Location:exmTeacher/questionManage.php?name=$uname&role=$rol");
+		exit();
+	}
 }
-
+/*
 $res=mysql_query($sql,$con);
 //从结果集中取得一行作为关联数组
 //返回根据从结果集取得的行生成的关联数组，如果没有更多行，则返回 false
 //本函数返回的字段名是区分大小写的
 if($row=mysql_fetch_assoc($res)){
+	if($row['admin_password'] == $pwd){
+		// day_log("admin ".$uid." login");
+		$uname = $row['admin_name'];
+		header("Location:adminPage.php?name=$uname&role=$rol");
+		exit();	
+	}else{
+		$sql="";
+		header("Location:login.php?errno=1");
+		exit();
+	}
+		
 	if($rol == "1"){//1. admin
-		if($row['admin_password'] == $pwd){
-			// day_log("admin ".$uid." login");
-			$uname = $row['admin_name'];
-			header("Location:adminPage.php?name=$uname&role=$rol");
-			exit();	
+	
 		}else{
-			header("Location:login.php?errno=1");
-			exit();
+			
 		}
 	}elseif ($rol == "2") {//2. teacher
 		if($row['tea_password'] == $pwd){
@@ -68,7 +94,7 @@ if($row=mysql_fetch_assoc($res)){
 
 mysql_free_result($res);
 mysql_close($con);
-
+*/
 function day_log($msg){
 		$time_stmp = date('[Y-m-d H:i:s]');
 		$date_stmp = date('Y-m-d');

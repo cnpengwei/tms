@@ -37,6 +37,8 @@
 
 <?php
 
+// require_once "common.php";
+// checkUserValidate();
 // var_dump($_POST);
 
 // if(isset($_POST['btn_login'])){
@@ -66,6 +68,7 @@
 			</select>
 		</label><br/>		 
 		密&nbsp;&nbsp;码: <input type="password" name="userPwd" /><br/>
+		验证码: <input type="text" name="checkCode"><img src="checkCode.php" onclick="this.src='checkCode.php?aa='+Math.random()'" /> 
 	<p>
 		<input type="submit" value="用户登录" /> &nbsp;&nbsp; 
 		<input type="reset" value="重新填写"/>
@@ -82,6 +85,7 @@
 						
 		}
 	?>
+
 	</div>
 </form>
 
