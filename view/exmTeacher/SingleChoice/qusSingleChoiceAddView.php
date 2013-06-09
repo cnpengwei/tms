@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>单项选择题信息</title>
+
 	<style type="text/css">
 	#content{
 		position: absolute;
