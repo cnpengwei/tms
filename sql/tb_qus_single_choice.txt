@@ -1,0 +1,14 @@
+CREATE TABLE `tb_qus_single_choice` (  
+`id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT, 
+`single_choice_qus_no` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin  NOT NULL,  
+`single_choice_qus_desc` varchar(300) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL, 
+`single_choice_itemA` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+`single_choice_itemB` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+`single_choice_itemC` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+`single_choice_itemD` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+`single_choice_answer` char(1) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+`single_choice_owner` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT 'who created this question',  
+`create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,  
+PRIMARY KEY (`id`), 
+UNIQUE KEY `qus_no` (`single_choice_qus_no`)) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='store single choice question info'
+
