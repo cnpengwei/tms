@@ -12,3 +12,21 @@ CREATE TABLE `tb_qus_single_choice` (
 PRIMARY KEY (`id`), 
 UNIQUE KEY `qus_no` (`single_choice_qus_no`)) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='store single choice question info'
 
+
+--3013-06-13
+
+CREATE TABLE `tb_qus_single_choice` (  
+`ID` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,  
+`SINGLE_CHOICE_QUS_NO` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,  
+`SINGLE_CHOICE_QUS_DESC` varchar(300) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,  
+`SINGLE_CHOICE_ITEMA` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,  
+`SINGLE_CHOICE_ITEMB` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,  
+`SINGLE_CHOICE_ITEMC` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,  
+`SINGLE_CHOICE_ITEMD` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,  
+`SINGLE_CHOICE_ANSWER` char(1) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,  
+`SINGLE_CHOICE_OWNER` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT 'who created this question',  
+`SINGLE_CHOICE_COURSE_NO` varchar(80) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT 'No. of course ',  
+`CREATE_TIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,  
+PRIMARY KEY (`ID`),  
+UNIQUE KEY `SINGLE_CHOICE_QUS_NO` (`SINGLE_CHOICE_QUS_NO`))
+ ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='store single choice question info'
