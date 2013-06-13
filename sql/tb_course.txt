@@ -7,3 +7,44 @@ CREATE TABLE `tb_course` (
 PRIMARY KEY (`ID`),  
 UNIQUE KEY `COURSE_NO` (`COURSE_NO`)) 
 ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='store course info'
+
+
+
+
+
+
+课程编号
+No. of course
+50203415
+课程类型
+Classification of Course
+必修课
+Required course
+校级公共课 ;基础或专业基础课√;专业课 
+Public course ;Basic or professional course√;Professional course
+选修课
+Elective course
+限选课 ;任选课 
+授课方式
+Teaching method
+课堂讲授√;
+实践课√
+Lecture√;Practicing√
+考核方式
+Exam method
+考试√;考查 
+Examination√
+课程教学
+总学时数
+Lecturing time
+24 学时
+24 hours
+学 分 数
+Score
+1.5
+学时分配
+Teaching time
+课堂讲授 16 学时; 实践课 8 学时
+Lecture 16 hours; Practicing 8 hours
+教材名称
+Teaching Materials
