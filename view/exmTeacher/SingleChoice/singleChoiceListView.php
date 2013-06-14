@@ -141,8 +141,6 @@ echo "</table>";
 				        alert("操作错误！");
 				    }
 				}//setCookie End
-
-
 			})//document ready end
 
 	</script>
