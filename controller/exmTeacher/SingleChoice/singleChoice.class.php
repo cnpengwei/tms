@@ -23,9 +23,11 @@
 		public function setQus_desc($qus_desc){
 			$this->qus_desc=$qus_desc;
 		}
-		function __construct(argument)
-		{
-			# code...
-		}
+
+		
+		// function __construct(argument)
+		// {
+		// 	# code...
+		// }
 	}
 ?>
