@@ -16,7 +16,7 @@
 </head>
 <body>
 <form method="POST">
-	<a href="SingleChoice/qusSingleChoiceListView.php">单项选择题维护</a>
+	<a href="SingleChoice/singleChoiceListView.php">单项选择题维护</a>
 </form>
 
 </body>

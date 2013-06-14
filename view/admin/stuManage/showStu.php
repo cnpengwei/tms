@@ -25,7 +25,7 @@ mysql_query('set names utf8', $con);
 $res=mysql_query($sql, $con);
 //show detailed info of student
 if($row=mysql_fetch_assoc($res)){
-	ob_start();
+	// ob_start();
 	header("content-type:text/html;charset=utf-8");
 	echo "<head><meta http-equiv='content-type' content='text/html;charset=utf-8'/></head>";
 	echo "<table border='1px' bordercolor='#000' cellspacing='0' width=400px height=200px>";

@@ -28,6 +28,6 @@
 <a href="stuManage/stuAdd.php" >添加学生</a>
 <a href="teaManage/teaList.php" >管理教师</a>
 <a href="teaManage/teaAdd.php" >添加教师</a>
-<a href="#" >安全退出</a>
+<a href="exit.php" >安全退出</a>
 </body>
 </html>

@@ -36,14 +36,31 @@
 		margin:0;
 	}
 	</style>
+	<script language="javascript" type="text/javascript" src="../js/jquery-1.8.2.js"> </script>
+	<script language="javascript" type="text/javascript" src="../js/jquery-ui-1.9.1.custom.js"></script>
+	<script type="text/javascript">
+		function checklogin (){
+			// var v=$('#loginId').val();
+			// $('#loginId').val('18');
+			// alert($('#loginId').val());
+			// return false;
+			if (($('#loginId').val()!="") && ($('#userPwd').val()!="")){
+				return true; //判断用户名和密码不为空,返回TRUE
+			}else{
+				alert ("用户名和密码均不能为空!");
+				return false;
+			}
+
+		}
+	</script>
 </head>
 <body>
-<form  action="loginProcess.php" method="POST">
+<form  action="loginProcess.php" method="POST" onSubmit="return checklogin()">
 	<div id="container">	
 		<h1>请登录</h1>	
-		用户名: <input type="textbox" name="loginId" /><br/>
+		用户名: <input type="textbox" name="loginId" id="loginId" /><br/>
 		<br/>		 
-		密&nbsp;&nbsp;码: <input type="password" name="userPwd" /><br/>
+		密&nbsp;&nbsp;码: <input type="password" name="userPwd" id="userPwd" /><br/>
 		验证码: <input type="text" name="checkCode"><img src="checkCode.php" onclick="this.src='checkCode.php?a='+Math.random()" /> <br />
 		保存一周<input type="checkbox" name="keep" />
 	<p>
