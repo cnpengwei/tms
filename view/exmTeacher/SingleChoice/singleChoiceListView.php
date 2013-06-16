@@ -24,7 +24,10 @@
 <body>	
 	<form method="POST">
 <?php
-
+	session_start();
+	if(!empty($_SESSION['user_name'])){
+		echo "当前登录用户:".$_SESSION['user_name'];
+	}
 	echo "<h1>单项选择题管理</h1>";
 
 	echo "<a href='insSingleChoiceView.php'>添加单项选择题</a><hr/>";

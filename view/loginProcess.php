@@ -36,6 +36,9 @@ if(!empty($row) && $pwd==$row[0]){//student
 	//Loged as admin
 	$rol=3;		
 	$uname = $row[1]; //column index, instead of column name, not like mysql_fetch_assoc
+	//here can write cookie, then get it out in other page, but this cookie maybe modified by invalid user...
+	session_start();
+	$_SESSION['user_name']=$uname;
 	header("Location:exmStudent/examTaken.php?name=$uname&role=$rol");
 	exit();
 }else{
@@ -45,6 +48,8 @@ if(!empty($row) && $pwd==$row[0]){//student
 	if(!empty($row) && $pwd==$row[0]){//teacher
 		$rol=2;
 		$uname = $row[1];
+		session_start();
+		$_SESSION['user_name']=$uname;
 		header("Location:exmTeacher/questionManageView.php?name=$uname&role=$rol");
 		exit();
 	}else{
