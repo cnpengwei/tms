@@ -37,8 +37,29 @@ if(!$con){
 }
 
 mysql_select_db("tms", $con);
-$sql="select * from tb_qus_sin_choice";
 mysql_query('set names utf8', $con);
+//----------------------------------------------------------------
+$pageSize=3;//show record count every page, can from user input
+$rowCount=0;//fetch from DB
+// $pageNow=1;//change with <a> link
+$pageCount=0;//total pages count
+
+// if(!empty($_GET['pageNow'])){
+// 	$pageNow=$_GET['pageNow'];
+// }
+$pageNow=empty($_GET['pageNow'])?1:$_GET['pageNow'];
+$sql="select count(ID) from tb_qus_sin_choice";
+$res1=mysql_query($sql);
+if($row=mysql_fetch_row($res1)){
+	$rowCount=$row[0];
+	echo "row count: $rowCount";
+}
+$pageCount=ceil($rowCount/$pageSize);
+echo "page count: $pageCount";
+//----------------------------------------------------------------
+
+$sql="select * from tb_qus_sin_choice limit ".($pageNow-1)*$pageSize.", $pageSize";
+
 $res=mysql_query($sql, $con);
 
 echo "<table border=1>";
@@ -50,11 +71,14 @@ while($row=mysql_fetch_assoc($res)){
 	$str_table.= '<td>'.$row['SINGLE_CHOICE_QUS_DESC'].'</td>';
 	$str_table.= '<td><a class="intro" href="#">查看详情</a></td>';
 	$str_table.= '<td><a href="updSingleChoiceView.php?id='.$row['ID'].'">修改题目</a></td>';
-	$str_table.= '<td><a href="delSingleChoiceView.php?id='.$row['ID'].'" onclick=\"return confirm_del()\">删除题目</a></td>';
+	$str_table.= '<td><a href="delSingleChoiceView.php?id='.$row['ID'].'" onclick="return confirm_del()">删除题目</a></td>';
 	$str_table.= '</tr>';
 	echo $str_table;
 }
 echo "</table>";
+for($i=1;$i<=$pageCount;$i++){
+	echo "<a href='singleChoiceListView.php?pageNow=$i'>$i</a> &nbsp;";
+}
 ?>
 
 

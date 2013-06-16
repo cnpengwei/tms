@@ -15,7 +15,7 @@
 			$this->conn=mysql_connect($this->host,$this->username,$this->password);
 			if(!$this->conn){
 				$err_msg="connnect to db err:".mysql_error();
-				day_log($err_msg)
+				day_log($err_msg);
 				die($err_msg);				
 			}
 		}

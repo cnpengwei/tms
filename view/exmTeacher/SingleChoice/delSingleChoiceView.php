@@ -30,10 +30,12 @@
 	}
 
 	mysql_select_db("tms", $con);
+	mysql_query('set names utf8', $con);
+
 	$sql="SELECT `ID`, `SINGLE_CHOICE_QUS_NO`, `SINGLE_CHOICE_QUS_DESC`, `SINGLE_CHOICE_ITEMA`, `SINGLE_CHOICE_ITEMB`,";
 	$sql.=" `SINGLE_CHOICE_ITEMC`, `SINGLE_CHOICE_ITEMD`, `SINGLE_CHOICE_ANSWER`, `SINGLE_CHOICE_OWNER`, ";
 	$sql.=" `SINGLE_CHOICE_COURSE_NO`, `CREATE_TIME` FROM `tb_qus_sin_choice` WHERE ID = $id";
-	mysql_query('set names utf8', $con);
+	echo $sql;
 	$res=mysql_query($sql, $con);
 	if($row=mysql_fetch_assoc($res)){
 		header("content-type:text/html;charset=utf-8");
@@ -54,7 +56,8 @@
 	}
 ?>
 
-<input type='hidden' name='oper' value='del'>
+<input type='hidden' name='oper' value='del' />
+<input type='hidden' name='id' value='<?php echo $id ?>' />
 
 </form>
 </body>

@@ -5,8 +5,13 @@
 header("content-type:text/html;charset=utf-8");
 
 require_once('../../class.common.inc.php');
-$clsCom = new clsCommon();
+// try{
+	
+// }catch(Exception e){
+// 	die("e->getMessage()");
+// }
 
+$clsCom = new SqlHelper();
 
 // try {	
 // 	$clsCom->inverse(0);
@@ -60,18 +65,26 @@ if($oper==='add'){
 		}
 		
 		mysql_close($con);	
-		echo "单项选择题-添加成功....<a href='../../../view/exmTeacher/SingleChoice/qusSingleChoiceListView.php'>查看最新</a>";	
+		echo "单项选择题-添加成功....<a href='../../../view/exmTeacher/SingleChoice/singleChoiceListView.php'>查看最新</a>";	
 }//if($oper==='add') end
 
 if($oper==='del'){
-	$id=intval($_GET['id']);
-	$sql.= "DELETE FROM `tb_qus_sin_choice` WHERE ID=$id";
-	if(!mysql_query($sql,$con)){
-		$clsCom->day_log('err:'.mysql_error());
-		die('Error: '.mysql_error());
-	}
-	mysql_close($con);
-	echo "删除成功....<a href='../../../view/exmTeacher/SingleChoice/singleChoiceListView.php'>查看最新</a>";
+	var_dump($_POST);
+	// try{
+		
+	// }catch(Exception e){
+	// 	$clsCom->day_log(e->getMessage);
+	// }
+
+	$id=intval($_POST['id']);
+		$sql.= "DELETE FROM `tb_qus_sin_choice` WHERE ID=$id";
+		if(!mysql_query($sql,$con)){
+			$clsCom->day_log('err:'.mysql_error());
+			die('Error: '.mysql_error());
+		}
+		mysql_close($con);
+		echo "删除成功....<a href='../../../view/exmTeacher/SingleChoice/singleChoiceListView.php'>查看最新</a>";
+	
 }//if($oper==='del') end
 
 if($oper==='upd'){
