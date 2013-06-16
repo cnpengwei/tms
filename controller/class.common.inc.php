@@ -24,7 +24,6 @@
 		public function execute_dql($sql){
 			$res=mysql_query($sql,$this->conn) or die ("execute query err:".mysql_error());
 			return $res;
-
 		}
 		
 		//DML
