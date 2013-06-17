@@ -19,16 +19,16 @@
 <form action="../../../controller/exmTeacher/SingleChoice/qusSingleChoiceAction.php" method="POST">
 	<h1>单项选择题信息:</h1>
 	<?php
-		if(date_default_timezone_get() != "1Asia/Shanghai") {
-			date_default_timezone_set("Asia/Shanghai");	
-		}
-		session_start();
-		if(!empty($_SESSION['user_id'])){			
-			$user_id=$_SESSION['user_id'];
-			$time_stmp = date('Y-m-d-H-i-s');
-			$qusNo=$user_id.'-'.$time_stmp;
-			echo "<input type='hidden' name='qusNo' value=$qusNo width=0 />";
-		}
+		// if(date_default_timezone_get() != "1Asia/Shanghai") {
+		// 	date_default_timezone_set("Asia/Shanghai");	
+		// }
+		// session_start();
+		// if(!empty($_SESSION['user_id'])){			
+		// 	$user_id=$_SESSION['user_id'];
+		// 	$time_stmp = date('Y-m-d-H-i-s');
+		// 	$qusNo=$user_id.'-'.$time_stmp;
+		// 	echo "<input type='hidden' name='qusNo' value=$qusNo width=0 />";
+		// }
 	?>
 <table>
 	<tr>

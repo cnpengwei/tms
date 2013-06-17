@@ -38,8 +38,8 @@ mysql_select_db("tms", $con) or day_log("use db tms err:".mysql_error());
 $sql = "";
 
 if($oper==='add'){	
-		$qusNo = $_POST['qusNo'];
-		echo "<br/>题目编号: $qusNo";
+		// $qusNo = $_POST['qusNo'];
+		// echo "<br/>题目编号: $qusNo";
 		$courseNo=$_POST['course'];
 		echo "<br/>课程编号: $courseNo";
 		$qusDesc=$_POST['qusDesc'];
@@ -50,11 +50,11 @@ if($oper==='add'){
 		$answer=$_POST['answer'];
 
 		$sql.="INSERT INTO `tb_qus_sin_choice`";
-		$sql.=" (`single_choice_qus_no`, `single_choice_qus_desc`,  ";
+		$sql.=" (`single_choice_qus_desc`,  ";
 		$sql.=" `single_choice_itemA`, `single_choice_itemB`, `single_choice_itemC`,`single_choice_itemD`,";
 		$sql.=" `single_choice_answer`,`single_choice_owner`,`SINGLE_CHOICE_COURSE_NO`) ";	
 		$sql.=" VALUES";
-		$sql.="('$qusNo','$qusDesc','$qusItemA','$qusItemB','$qusItemC','$qusItemD','$answer', '123','$courseNo' )";
+		$sql.="('$qusDesc','$qusItemA','$qusItemB','$qusItemC','$qusItemD','$answer', '123','$courseNo' )";
 
 		if (!mysql_query($sql, $con)) {
 			$clsCom->day_log('err:'.mysql_error());
