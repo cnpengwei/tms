@@ -61,15 +61,16 @@ $pageCount=ceil($rowCount/$pageSize);
 echo "<br />page count: $pageCount";
 //----------------------------------------------------------------
 
-$sql="select * from tb_qus_sin_choice limit ".($pageNow-1)*$pageSize.", $pageSize";
+$sql="select * from tb_qus_sin_choice ORDER BY create_time ASC limit ".($pageNow-1)*$pageSize.", $pageSize " ;
 
 $res=mysql_query($sql, $con);
 
 echo "<table border=1>";
-echo "<tr><td>id</td><td>题目编号</td><td>题目描述</td><td>查看详情</td><td>修改题目</td><td>修改题目</td><td>删除题目</td></tr>";
+echo "<tr><td>id</td><td>课程编号</td><td>题目编号</td><td>题目描述</td><td>查看详情</td><td>修改题目</td><td>修改题目</td><td>删除题目</td></tr>";
 while($row=mysql_fetch_assoc($res)){
 	$str_table=  '<tr>';
 	$str_table.= '<td>'.$row['ID'].'</td>';
+	$str_table.= '<td>'.$row['SINGLE_CHOICE_COURSE_NO'].'</td>';
 	$str_table.= '<td>'.$row['SINGLE_CHOICE_QUS_NO'].'</td>';
 	$str_table.= '<td>'.$row['SINGLE_CHOICE_QUS_DESC'].'</td>';
 	$str_table.= '<td><a class="intro" href="#">查看详情</a></td>';

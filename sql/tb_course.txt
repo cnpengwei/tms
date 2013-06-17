@@ -9,6 +9,10 @@ UNIQUE KEY `COURSE_NO` (`COURSE_NO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='store course info'
 
 
+INSERT INTO `tb_course`( `COURSE_NO`, `COURSE_DESC`) VALUES ('001','马哲')
+
+INSERT INTO `tb_course`( `COURSE_NO`, `COURSE_DESC`) VALUES ('002','理论')
+
 
 课程编号
 No. of course
