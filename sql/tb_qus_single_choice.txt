@@ -12,6 +12,9 @@ CREATE TABLE `tb_qus_single_choice` (
 PRIMARY KEY (`id`), 
 UNIQUE KEY `qus_no` (`single_choice_qus_no`)) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='store single choice question info'
 
+==self copy
+`SINGLE_CHOICE_QUS_DESC`, `SINGLE_CHOICE_ITEMA`, `SINGLE_CHOICE_ITEMB`, `SINGLE_CHOICE_ITEMC`, `SINGLE_CHOICE_ITEMD`, `SINGLE_CHOICE_ANSWER`, `SINGLE_CHOICE_OWNER`, `SINGLE_CHOICE_COURSE_NO`
+==self copy
 
 --3013-06-13
 

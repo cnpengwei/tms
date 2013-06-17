@@ -82,16 +82,29 @@ echo "</table>";
 // 	echo "<a href='singleChoiceListView.php?pageNow=$i'>$i</a> &nbsp;";
 // }
 
+echo "首页";
+echo "<a href='#'><<</a> &nbsp;&nbsp;";//every 10 page forward
 if($pageNow>1){
 	$prePage=$pageNow-1;
 	echo "<a href='singleChoiceListView.php?pageNow=$prePage'>上一页</a>";
 }
+
+echo "<a href='#'>[1]</a>";
+echo "<a href='#'>[2]</a>";
+echo "<a href='#'>[3]</a>";
+echo "<a href='#'>[4]</a>";
+echo "<a href='#'>[5]</a>";
+
 if($pageNow<$pageCount){
 	$nextPage=$pageNow+1;
 	echo "<a href='singleChoiceListView.php?pageNow=$nextPage'>下一页</a>&nbsp;&nbsp;";
 }
-echo "当前页{$pageNow}/共{$pageCount}页";
+echo "<a href='#'>>></a>";//every 10 pages backward
+echo "末页";
+echo "当前页{$pageNow}/共{$pageCount}页&nbsp;&nbsp;&nbsp;";
+
 ?>
+
 
 <form action="singleChoiceListView.php">
 跳转到<input type="text" name="pageNow"><input type='Submit' value='Go'/>
