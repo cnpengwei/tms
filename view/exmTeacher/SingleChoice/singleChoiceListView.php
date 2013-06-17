@@ -55,10 +55,10 @@ $sql="select count(ID) from tb_qus_sin_choice";
 $res1=mysql_query($sql);
 if($row=mysql_fetch_row($res1)){
 	$rowCount=$row[0];
-	echo "row count: $rowCount";
+	echo "<br/>row count: $rowCount";
 }
 $pageCount=ceil($rowCount/$pageSize);
-echo "page count: $pageCount";
+echo "<br />page count: $pageCount";
 //----------------------------------------------------------------
 
 $sql="select * from tb_qus_sin_choice limit ".($pageNow-1)*$pageSize.", $pageSize";
@@ -66,14 +66,15 @@ $sql="select * from tb_qus_sin_choice limit ".($pageNow-1)*$pageSize.", $pageSiz
 $res=mysql_query($sql, $con);
 
 echo "<table border=1>";
-echo "<tr><td>id</td><td>题目编号</td><td>题目描述</td><td>查看详情</td><td>修改题目</td><td>删除题目</td></tr>";
+echo "<tr><td>id</td><td>题目编号</td><td>题目描述</td><td>查看详情</td><td>修改题目</td><td>修改题目</td><td>删除题目</td></tr>";
 while($row=mysql_fetch_assoc($res)){
 	$str_table=  '<tr>';
 	$str_table.= '<td>'.$row['ID'].'</td>';
 	$str_table.= '<td>'.$row['SINGLE_CHOICE_QUS_NO'].'</td>';
 	$str_table.= '<td>'.$row['SINGLE_CHOICE_QUS_DESC'].'</td>';
 	$str_table.= '<td><a class="intro" href="#">查看详情</a></td>';
-	$str_table.= '<td><a href="updSingleChoiceView.php?id='.$row['ID'].'">修改题目</a></td>';
+	$str_table.= '<td><a href="updSingleChoiceView.php?id='.$row['ID'].'">修改题目_PAGE</a></td>';
+	$str_table.= '<td><span class="updateItem" itemID='.$row['ID'].' >修改题目_DIV</span></td>';
 	$str_table.= '<td><a href="delSingleChoiceView.php?id='.$row['ID'].'" onclick="return confirm_del()">删除题目</a></td>';
 	$str_table.= '</tr>';
 	echo $str_table;
@@ -84,6 +85,9 @@ for($i=1;$i<=$pageCount;$i++){
 }
 ?>
 
+<pre>
+	<a class="intro" href="javascript:void(0);" >me one link</a>
+</pre>
 
 </form>
 
@@ -95,6 +99,10 @@ for($i=1;$i<=$pageCount;$i++){
 	</div>
 	<script language="javascript">
 			$(document).ready(function(){
+					$(".updateItem").click(function(){
+						var itemID=$(this).attr('itemID');
+						alert(itemID);
+					});
 					// $( "#divShowDetail" ).dialog({
 			  //           autoOpen: false,
 			  //           height: 500,

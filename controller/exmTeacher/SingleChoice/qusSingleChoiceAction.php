@@ -39,6 +39,7 @@ $sql = "";
 
 if($oper==='add'){	
 		$qusNo = $_POST['qusNo'];
+		echo "<br/>$qusNo";
 		$qusDesc=$_POST['qusDesc'];
 		$qusItemA=$_POST['qusItemA'];
 		$qusItemB=$_POST['qusItemB'];

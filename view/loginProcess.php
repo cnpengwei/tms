@@ -39,6 +39,7 @@ if(!empty($row) && $pwd==$row[0]){//student
 	//here can write cookie, then get it out in other page, but this cookie maybe modified by invalid user...
 	session_start();
 	$_SESSION['user_name']=$uname;
+	$_SESSION['user_id']=$uid;
 	header("Location:exmStudent/examTaken.php?name=$uname&role=$rol");
 	exit();
 }else{
@@ -50,6 +51,7 @@ if(!empty($row) && $pwd==$row[0]){//student
 		$uname = $row[1];
 		session_start();
 		$_SESSION['user_name']=$uname;
+		$_SESSION['user_id']=$uid;
 		header("Location:exmTeacher/questionManageView.php?name=$uname&role=$rol");
 		exit();
 	}else{
@@ -59,6 +61,9 @@ if(!empty($row) && $pwd==$row[0]){//student
 		if(!empty($row) && $pwd==$row[0]){//Admin
 			$rol=1;
 			$uname = $row[1];
+			session_start();
+			$_SESSION['user_name']=$uname;
+			$_SESSION['user_id']=$uid;
 			header("Location:admin/adminPage.php?name=$uname&role=$rol");
 			exit();
 		}else{

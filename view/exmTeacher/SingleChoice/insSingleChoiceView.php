@@ -18,10 +18,41 @@
 <body>
 <form action="../../../controller/exmTeacher/SingleChoice/qusSingleChoiceAction.php" method="POST">
 	<h1>单项选择题信息:</h1>
+	<?php
+		session_start();
+		if(!empty($_SESSION['user_id'])){			
+			$user_id=$_SESSION['user_id'];
+			$time_stmp = date('Y-m-d-H-i-s');
+			$qusNo=$user_id.'-'.$time_stmp;
+			echo "<input type='hidden' name='qusNo' value=$qusNo width=0 />";
+		}
+	?>
 <table>
 	<tr>
-		<td align="right">题目编号:</td>
-		<td><input type="text" name="qusNo" /></td>
+		<td align="right">课程:</td>
+		<td>
+			<select name="course">
+				<?php
+					require_once("../../../controller/exmTeacher/class.common.inc.php"); 
+					$con = mysql_connect("localhost","root","");
+					if (!$con) {
+						$clsCom->day_log(mysql_error());
+						die('Could not connect: ' . mysql_error());
+					}
+					mysql_query('set names utf8', $con) or day_log("setup_db_code fail: ".mysql_error());
+					mysql_select_db("tms", $con) or day_log("use db tms err:".mysql_error());
+					$sql="SELECT  `COURSE_NO`, `COURSE_DESC` FROM `tb_course`";
+					$res=mysql_query($sql,$con);
+					$cnt=mysql_num_rows($res);
+					for($i=0;$i<$cnt;$i++){
+						$col1=mysql_fetch_array($res);
+						echo "<option value=1>course_desd";
+						echo "</option>";
+					} 
+
+				?>
+			</select>
+		</td>
 	</tr>
 	<tr>
 		<td align="right">题目描述:</td>
