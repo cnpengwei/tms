@@ -22,7 +22,7 @@
 	</script>
 </head>
 <body>	
-	<form method="POST">
+	
 <?php
 	session_start();
 	if(!empty($_SESSION['user_name'])){
@@ -50,22 +50,20 @@ $pageCount=0;//total pages count
 // if(!empty($_GET['pageNow'])){
 // 	$pageNow=$_GET['pageNow'];
 // }
-$pageNow=empty($_GET['pageNow'])?1:$_GET['pageNow'];
+$pageNow=empty($_GET['pageNow'])? 1 : $_GET['pageNow'];
 $sql="select count(ID) from tb_qus_sin_choice";
 $res1=mysql_query($sql);
 if($row=mysql_fetch_row($res1)){
 	$rowCount=$row[0];
-	echo "<br/>row count: $rowCount";
 }
 $pageCount=ceil($rowCount/$pageSize);
-echo "<br />page count: $pageCount";
 //----------------------------------------------------------------
 
 $sql="select * from tb_qus_sin_choice ORDER BY create_time ASC limit ".($pageNow-1)*$pageSize.", $pageSize " ;
 
 $res=mysql_query($sql, $con);
 
-echo "<table border=1 bordercolor=green cellspacing=0>";
+echo "<table border=1 bordercolor='green' cellspacing='0'>";
 echo "<tr><td>id</td><td>课程编号</td><td>题目描述</td><td>查看详情</td><td>修改题目</td><td>修改题目</td><td>删除题目</td></tr>";
 while($row=mysql_fetch_assoc($res)){
 	$str_table=  '<tr>';
@@ -83,9 +81,10 @@ echo "</table>";
 // for($i=1;$i<=$pageCount;$i++){
 // 	echo "<a href='singleChoiceListView.php?pageNow=$i'>$i</a> &nbsp;";
 // }
+
 if($pageNow>1){
 	$prePage=$pageNow-1;
-	echo "<a href=singleChoiceListView.php?pageNow=$prePage'>上一页</a>&nbsp;&nbsp;";
+	echo "<a href='singleChoiceListView.php?pageNow=$prePage'>上一页</a>";
 }
 if($pageNow<$pageCount){
 	$nextPage=$pageNow+1;
@@ -94,11 +93,18 @@ if($pageNow<$pageCount){
 echo "当前页{$pageNow}/共{$pageCount}页";
 ?>
 
+<form action="singleChoiceListView.php">
+跳转到<input type="text" name="pageNow"><input type='Submit' value='Go'/>
+</form>
+
+
 <pre>
 	<a class="intro" href="javascript:void(0);" >me one link</a>
 </pre>
 
-</form>
+
+
+
 
 	<div id="divShowDetail" title="SingleChoiceDetail">
        		<!--<iframe id="funIFrame" src="regis.htm" frameborder="0"></iframe>-->
