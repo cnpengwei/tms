@@ -26,7 +26,7 @@
 ?>
 <a href="stuManage/stuList.php" >管理学生</a>
 <a href="stuManage/stuAdd.php" >添加学生</a>
-<a href="teaManage/teaList.php" >管理教师</a>
+<a href="teaManage/teaManage.php" >管理教师</a>
 <a href="teaManage/teaAdd.php" >添加教师</a>
 <a href="exit.php" >安全退出</a>
 </body>

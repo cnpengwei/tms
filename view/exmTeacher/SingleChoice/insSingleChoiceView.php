@@ -29,6 +29,14 @@
 		// 	$qusNo=$user_id.'-'.$time_stmp;
 		// 	echo "<input type='hidden' name='qusNo' value=$qusNo width=0 />";
 		// }
+		session_start();
+		if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])){
+			$qusOwner=$_SESSION['user_id'];
+			echo "<input type='hidden' name='qusOwner' value='$qusOwner' width='0' />";
+		}else{
+			echo "<input type='hidden' name='qusOwner' value=' ' width='0' />";
+		}
+		
 	?>
 <table>
 	<tr>

@@ -1,53 +1,41 @@
 <?php
 
-
-// echo "qusSingleChoiceAction.php";//controller :)
 header("content-type:text/html;charset=utf-8");
 
 require_once('../../class.common.inc.php');
-// try{
-	
-// }catch(Exception e){
-// 	die("e->getMessage()");
-// }
-
-$clsCom = new SqlHelper();
-
-// try {	
-// 	$clsCom->inverse(0);
-// } catch (Exception $e) {
-// 	$clsCom->day_log($e->getMessage());
-// }
-
 
 date_default_timezone_set('PRC');
 
 $oper=$_POST['oper'];
+$sqlHelper = new SqlHelper();
+$con=$sqlHelper->conn; // mysql_connect("localhost","root","");
+$ver=$sqlHelper->db_version();
+echo "$ver<br/>";
 
-$con = mysql_connect("localhost","root","");
+// echo "qusSingleChoiceAction ...<br/>";
+// var_dump($con);
+
 if (!$con) {
-	$clsCom->day_log(mysql_error());
+	$sqlHelper->day_log(mysql_error());
 	die('Could not connect: ' . mysql_error());
 }
 
+mysql_query('set names utf8', $con) or $sqlHelper->day_log("setup_db_code fail: ".mysql_error());
 
-mysql_query('set names utf8', $con) or day_log("setup_db_code fail: ".mysql_error());
-
-mysql_select_db("tms", $con) or day_log("use db tms err:".mysql_error());
+mysql_select_db("tms", $con) or $sqlHelper->day_log("use db tms err:".mysql_error());
 
 $sql = "";
 
-if($oper==='add'){	
-		// $qusNo = $_POST['qusNo'];
-		// echo "<br/>题目编号: $qusNo";
-		$courseNo=$_POST['course'];
-		echo "<br/>课程编号: $courseNo";
+if($oper==='add'){		
 		$qusDesc=$_POST['qusDesc'];
 		$qusItemA=$_POST['qusItemA'];
 		$qusItemB=$_POST['qusItemB'];
 		$qusItemC=$_POST['qusItemC'];
 		$qusItemD=$_POST['qusItemD'];
+		$qusOwner=$_POST['qusOwner'];
 		$answer=$_POST['answer'];
+		$courseNo=$_POST['course'];
+		echo "<br/>课程编号: $courseNo";
 
 		$sql.="INSERT INTO `tb_qus_sin_choice`";
 		$sql.=" (`single_choice_qus_desc`,  ";

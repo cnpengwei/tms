@@ -5,11 +5,10 @@
 	*/
 	class SqlHelper {
 		public $conn;
+		public $host="localhost";
 		public $dbname="TMS";
 		public $username="root";
 		public $password="";
-		public $host="localhost";
-
 		
 		function __construct() {
 			$this->conn=mysql_connect($this->host,$this->username,$this->password);
@@ -52,6 +51,17 @@
 			file_put_contents($date_stmp.".log", $time_stmp.$msg."\r\n", FILE_APPEND);
 		}
 
+		//----------------------------------------------------------------------------------
+		/**
+		 * Returns the version of the database server currently in use.
+		 *
+		 * @return Database server version
+		 */
+		function db_version() {
+		  list($version) = explode('-', mysql_get_server_info());
+		  return $version;
+		}
+		
 		function inverse($x) {
 	    	if (!$x) {
 				throw new Exception('Division by zero.');

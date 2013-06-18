@@ -78,7 +78,6 @@
 					echo "<font color='red' size='3'>验证码错误 </font>";
 				}
 			 }
-						
 		}
 	?>
 
