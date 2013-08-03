@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -13,12 +12,70 @@
 	.box1{ width: 100px; height: 100px; background: red; position: absolute; left: 100px; top: 100px;}
 	.box2{ width: 100px; height: 100px; background: yellow; position: absolute; left: 250px; top: 50px;}
 	.box3{ width: 100px; height: 100px; background: blue; position: absolute; left: 400px; top: 100px;}
+	</style>
 
+	<script type="text/javascript">
+		// window.onload=function(){
+		// 	var oDiv = document.getElementById('div1');
+		// 	var oInput = document.getElementById('input1');
+
+		// 	oInput.onclick=function(){
+		// 		var arr = oDiv.innerHTML.split(',');
+		// 		arr.push(arr[0]);
+		// 		//arr.shift(arr[0]);
+		// 		arr.shift();
+		// 		oDiv.innerHTML=arr;
+		// 	}
+		// };
+		window.onload=function(){
+
+
+
+
+			var aInput = document.getElementsByTagName('input');
+			var aDiv = document.getElementsByTagName('div');
+
+			var arr = [];
+
+			for(var i=0; i<aDiv.length;i++){
+				arr.push( [ getStyle(aDiv[i], 'left'), getStyle(aDiv[i], 'top') ] );
+
+			}
+			console.log(arr);
+
+			aInput[0].onclick=function(){				
+				arr.push(arr[0]);
+				arr.shift();
+				for(var i=0; i<aDiv.length;i++){
+					aDiv[i].style.left=arr[i][0];
+					aDiv[i].style.top=arr[i][1];
+				}
+				
+			};
+
+			aInput[1].onclick=function(){				
+				arr.unshift(arr[arr.length-1]);
+				arr.pop();
+				for(var i=0; i<aDiv.length;i++){
+					aDiv[i].style.left=arr[i][0];
+					aDiv[i].style.top=arr[i][1];
+				}
+				
+			};
+			function getStyle(obj, attr){
+				if(obj.currentStyle){
+					return obj.currentStyle[attr];
+				}else{
+					return getComputedStyle(obj,false)[attr];
+				}
+			}
+		};
+	</script>
 </head>
 <body>
 <form  action="loginProcess.php" method="POST" onSubmit="return checklogin()">
-	<div id='div1'>1, 2, 3, 4</div>
-	<input type='button' value='change' id='input1'></input>
+<!-- 	<div id='div1'>1, 2, 3, 4</div>
+	<input type='button' value='change' id='input1'></input> -->
 
 	<input type='button' value='<==' id='input2'></input>
 	<input type='button' value='==>' id='input2'></input>

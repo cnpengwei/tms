@@ -40,18 +40,6 @@
 	<script language="javascript" type="text/javascript" src="../js/jquery-1.8.2.js"> </script>
 	<script language="javascript" type="text/javascript" src="../js/jquery-ui-1.9.1.custom.js"></script>
 	<script type="text/javascript">
-		window.onload=function(){
-			var oDiv = document.getElementById('div1');
-			var oInput = document.getElementById('input1');
-
-			oInput.onclick=function(){
-				var arr = oDiv.innerHTML.split(',');
-				arr.push(arr[0]);
-				//arr.shift(arr[0]);
-				arr.shift();
-				oDiv.innerHTML=arr;
-			}
-		};
 		function checklogin (){
 			// var v=$('#loginId').val();
 			// $('#loginId').val('18');
