@@ -35,10 +35,23 @@
 	p{
 		margin:0;
 	}
+
 	</style>
 	<script language="javascript" type="text/javascript" src="../js/jquery-1.8.2.js"> </script>
 	<script language="javascript" type="text/javascript" src="../js/jquery-ui-1.9.1.custom.js"></script>
 	<script type="text/javascript">
+		window.onload=function(){
+			var oDiv = document.getElementById('div1');
+			var oInput = document.getElementById('input1');
+
+			oInput.onclick=function(){
+				var arr = oDiv.innerHTML.split(',');
+				arr.push(arr[0]);
+				//arr.shift(arr[0]);
+				arr.shift();
+				oDiv.innerHTML=arr;
+			}
+		};
 		function checklogin (){
 			// var v=$('#loginId').val();
 			// $('#loginId').val('18');
@@ -62,11 +75,15 @@
 		<br/>		 
 		密&nbsp;&nbsp;码: <input type="password" name="userPwd" id="userPwd" /><br/>
 		验证码: <input type="text" name="checkCode"><img src="checkCode.php" onclick="this.src='checkCode.php?a='+Math.random()" /> <br />
-		保存一周<input type="checkbox" name="keep" />
+		<label id='lblStoreCookie' onmouseover=''>
+			保存一周<input type="checkbox" name="keep" />
+		</label>
+		<div>请不要在公共电脑上选择此项</div>
 	<p>
 		<input type="submit" value="用户登录" /> &nbsp;&nbsp; 
 		<input type="reset" value="重新填写"/>
 	</p>
+	
 	
 	<?php		
 		if(isset($_GET['errno'])) {			
