@@ -74,6 +74,9 @@
 	
 	
 	<?php		
+		echo get_include_path();
+		echo "<br/>";
+		echo ini_get('include_path');
 		if(isset($_GET['errno'])) {			
 			 if(!empty($_GET['errno'])) {
 				$errno=$_GET['errno'];
