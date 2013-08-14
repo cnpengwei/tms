@@ -1,15 +1,14 @@
-
+<?php
+require_once("../model/common.php");
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>tms index page</title>
+	<link rel="stylesheet" type="text/css" href="../assets/css/reg.css">
 	<style type="text/css">
-	body{
-		background-color: #eee;
-		/*text-align: center;*/
-		/*float: center;*/
-	}
+	
 	/*
 	div#wrap{ 
 		width: 960px;
@@ -37,6 +36,7 @@
 	}
 
 	</style>
+	<script type="text/javascript" src="js/reg.js"></script>
 	<script language="javascript" type="text/javascript" src="../js/jquery-1.8.2.js"> </script>
 	<script language="javascript" type="text/javascript" src="../js/jquery-ui-1.9.1.custom.js"></script>
 	<script type="text/javascript">
@@ -51,15 +51,35 @@
 				alert ("用户名和密码均不能为空!");
 				return false;
 			}
-
 		}
 	</script>
 </head>
 <body>
 <form  action="loginProcess.php" method="POST" onSubmit="return checklogin()">
+	<dl id="inpList">
+        	<dt>请登录</dt>
+        	<dd class="def cl">
+            	<label><span class="names">用户名：</span><input id="uname" type="text"/></label>
+            </dd>
+            <dd class="def cl">
+            	<label><span class="names">密码</span><input id="pass" type="password"/></label>
+            </dd>
+            <dd class="def cl">
+            	<label><span class="names">验证码</span><input id="checking" type="text"/></label>
+            </dd>
+            <dd class="def cl">
+            	<label><span class="names">保存一周</span><input id="pwd" type="checkbox"/></label>
+            </dd>
+     
+            <dd class="def cl">
+            	<label><a id="enter" href="javascript:void(0);">用户登录</a><a id="enter" href="javascript:void(0);">重新填写</a></label>
+            </dd>
+        </dl>
+
+    <!--
 	<div id="container">	
 		<h1>请登录</h1>	
-		用户名: <input type="textbox" name="loginId" id="loginId" /><br/>
+		用户名: <input type="textbox" name="loginId" id="loginId" value="<?php echo getCookieVal($loginId) ?>" /><br/>
 		<br/>		 
 		密&nbsp;&nbsp;码: <input type="password" name="userPwd" id="userPwd" /><br/>
 		验证码: <input type="text" name="checkCode"><img src="checkCode.php" onclick="this.src='checkCode.php?a='+Math.random()" /> <br />
@@ -71,7 +91,8 @@
 		<input type="submit" value="用户登录" /> &nbsp;&nbsp; 
 		<input type="reset" value="重新填写"/>
 	</p>
-	
+</div>
+		-->
 	
 	<?php		
 		echo get_include_path();
@@ -89,7 +110,7 @@
 		}
 	?>
 
-	</div>
+
 </form>
 
 </body>
